@@ -1,5 +1,5 @@
 # Playwright Automation Platform
-n[![CI](https://github.com/tyson1403/playwright-automation-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/tyson1403/playwright-automation-platform/actions/workflows/ci.yml)
+[![CI](https://github.com/tyson1403/playwright-automation-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/tyson1403/playwright-automation-platform/actions/workflows/ci.yml)
 
 A reusable **Playwright test platform in TypeScript**. Playwright and its related
 dependencies are versioned in **one place**; test projects consume this package and
