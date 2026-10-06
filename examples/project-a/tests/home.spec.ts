@@ -25,6 +25,9 @@ test("platform defaults apply: trace config survives a project's own use block",
 test("mocked network response is rendered (no external dependency)", async ({
   page,
 }) => {
+  await page.route("**/", (route) =>
+    route.fulfill({ contentType: "text/html", body: "<h1>stub</h1>" }),
+  );
   await page.route("**/api/greeting", (route) =>
     route.fulfill({ json: { message: "hello platform" } }),
   );
@@ -37,8 +40,10 @@ test("mocked network response is rendered (no external dependency)", async ({
 
 test("guardrail: an uncaught page error fails the test", async ({ page }) => {
   test.fail(); // passes only if the platform's pageErrors fixture catches the error
-  await page.setContent(
-    "<script>setTimeout(() => { throw new Error('boom'); }, 0);</script>",
-  );
-  await page.waitForTimeout(100);
+  await Promise.all([
+    page.waitForEvent("pageerror"),
+    page.setContent(
+      "<script>setTimeout(() => { throw new Error('boom'); }, 0);</script>",
+    ),
+  ]);
 });

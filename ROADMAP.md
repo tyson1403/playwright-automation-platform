@@ -5,19 +5,19 @@ reusable helpers, consumed by many test projects.
 
 ## Status
 
-- [x] Package scaffold: TypeScript, ESM, typed exports
-- [x] Playwright installed once, in the platform
-- [x] `createConfig(overrides)` shared config factory
-- [x] Example consumer project (`examples/project-a`) pinned to a release tag
-- [x] CI: build and example tests on every push and pull request
-- [x] Release `v0.1.0` (git tag, installable via `github:`)
-- [x] Lint step (Biome) in CI
-- [x] Reusable fixture (`pageErrors`), `BasePage` page-object base, `uniqueId` helper
-- [x] Second consumer project (`project-b`); CI runs both against the same platform build
-- [x] Exact Playwright pin plus CI version-consistency check; upgrade guide ([docs/UPGRADING.md](docs/UPGRADING.md))
-- [ ] Demonstrate a real Playwright bump reaching both projects when 1.64 is released
-- [x] Multi-browser support: Chromium locally, all three browsers in CI
-- [ ] Automated release notes and upgrade guide
+Done:
+- [x] Package scaffold: TypeScript, ESM, typed exports (v0.1.0)
+- [x] `createConfig(overrides)` shared config factory with merged `use` (v0.1.0)
+- [x] CI, and an example consumer pinned to a release tag (v0.1.0)
+- [x] Reusable `pageErrors` fixture, `BasePage`, `uniqueId`; second consumer `project-b` (v0.2.0)
+- [x] Exact Playwright pin, CI version-consistency check, upgrade guide (v0.3.0)
+- [x] Multi-browser config: Chromium locally, all three browsers in CI (v0.4.0)
+- [x] Unit tests for the platform, working lint rules, `forbidOnly` in CI, Dependabot (v0.5.0)
+
+Next:
+- [ ] Demonstrate a real Playwright bump reaching both projects once 1.64 is released
+- [ ] Automated release notes and GitHub releases from tags
+- [ ] Optional: authentication fixture and API-client fixture
 
 ## Decisions
 
@@ -31,8 +31,11 @@ reusable helpers, consumed by many test projects.
   Other nested options are replaced whole.
 - **Projects import `test` and `expect` from the platform**, not from `@playwright/test`, so they never
   need their own Playwright dependency.
+- **Exact Playwright pin**: a caret range lets projects installed on different days resolve different versions.
+- **Chromium locally, every browser in CI**: fast feedback for the tester, full coverage from the pipeline.
+- **Environment is read inside `createConfig`**, not at import time, so it can be unit tested.
 - **Linting with Biome**, because `typescript-eslint` does not support TypeScript 7 yet.
-- **CI tests the branch, not the tag:** the example is pinned to a release, so the workflow installs it
+- **CI tests the branch, not the tag:** the examples are pinned to releases, so the workflow installs them
   against the checkout (`npm install --no-save ../..`).
 
 ## Open questions

@@ -1,12 +1,12 @@
 {
   "name": "@tyson1403/playwright-automation-platform",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tyson1403/playwright-automation-platform.git"
   },
-  "description": "Shared Playwright platform: versions, config and reusable helpers",
+  "description": "Reusable Playwright test platform: one pinned Playwright version, a shared config factory and reusable fixtures for many test projects",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -24,10 +24,10 @@
     "prepare": "npm run build",
     "lint": "biome check",
     "lint:fix": "biome check --write",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "test": "npm run build && node --test \"test/*.test.mjs\""
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
@@ -36,5 +36,18 @@
   },
   "dependencies": {
     "@playwright/test": "1.63.0"
-  }
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "test-automation",
+    "sdet",
+    "qa",
+    "shared-config"
+  ],
+  "homepage": "https://github.com/tyson1403/playwright-automation-platform#readme",
+  "bugs": {
+    "url": "https://github.com/tyson1403/playwright-automation-platform/issues"
+  },
+  "author": "tyson1403"
 }

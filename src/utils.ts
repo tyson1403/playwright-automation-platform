@@ -1,4 +1,6 @@
-/** Unique, readable test data, e.g. uniqueId("todo") -> "todo-k3j9x2a1". */
+import { randomUUID } from "node:crypto";
+
+/** Unique, readable test data, e.g. uniqueId("todo") -> "todo-3f9c1a7e". */
 export function uniqueId(prefix = "id"): string {
-  return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
+  return `${prefix}-${randomUUID().slice(0, 8)}`;
 }
