@@ -40,14 +40,16 @@ The project does **not** depend on `@playwright/test` itself; the platform provi
 ## Install
 
 ```bash
-npm i github:tyson1403/playwright-automation-platform#v0.1.0
+npm i github:tyson1403/playwright-automation-platform#v0.2.0
 npx playwright install
 ```
 
 ## What it provides
 
 - `createConfig(overrides)`: shared defaults (retries on CI, reporters, trace on first retry). Project values win; unspecified defaults are kept (`use` is merged, not replaced).
-- `test` / `expect`: re-exported so projects import everything from one place.
+- `test` / `expect`: Playwright's, extended with an auto `pageErrors` fixture that fails tests on uncaught page errors. Projects import everything from one place and extend `test` with their own fixtures.
+- `BasePage`: base class for page objects (`path`, `open()`, `title()`).
+- `uniqueId(prefix)`: unique test data.
 - CI on every push and pull request (see badge above). Reusable fixtures and page objects are on the [roadmap](ROADMAP.md).
 
 ## Design decisions
@@ -62,7 +64,8 @@ npx playwright install
 
 ```
 src/                 platform source (config factory, exports)
-examples/project-a/  sample consumer project
+examples/project-a/  consumer: config, API and fixture tests
+examples/project-b/  consumer: page-object tests against a public TodoMVC demo
 ```
 
 ## Develop
@@ -70,7 +73,7 @@ examples/project-a/  sample consumer project
 ```bash
 npm install
 npm run build
-cd examples/project-a && npm install && npx playwright test
+cd examples/project-a && npm install --no-save ../.. && npx playwright test
 ```
 
 ## License

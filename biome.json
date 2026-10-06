@@ -3,6 +3,7 @@
     "includes": [
       "src/**",
       "examples/*/tests/**",
+      "examples/*/pages/**",
       "examples/*/playwright.config.ts"
     ]
   },

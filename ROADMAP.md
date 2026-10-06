@@ -12,8 +12,9 @@ reusable helpers, consumed by many test projects.
 - [x] CI: build and example tests on every push and pull request
 - [x] Release `v0.1.0` (git tag, installable via `github:`)
 - [x] Lint step (Biome) in CI
-- [ ] Reusable fixtures and page objects
-- [ ] Second consumer project; demonstrate one version bump reaching both
+- [x] Reusable fixture (`pageErrors`), `BasePage` page-object base, `uniqueId` helper
+- [x] Second consumer project (`project-b`); CI runs both against the same platform build
+- [ ] Show a Playwright version bump reaching both projects (v0.3.0)
 - [ ] Multi-browser CI matrix
 - [ ] Automated release notes and upgrade guide
 

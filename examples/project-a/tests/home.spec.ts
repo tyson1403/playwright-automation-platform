@@ -34,3 +34,11 @@ test("mocked network response is rendered (no external dependency)", async ({
   );
   expect(message).toEqual({ message: "hello platform" });
 });
+
+test("guardrail: an uncaught page error fails the test", async ({ page }) => {
+  test.fail(); // passes only if the platform's pageErrors fixture catches the error
+  await page.setContent(
+    "<script>setTimeout(() => { throw new Error('boom'); }, 0);</script>",
+  );
+  await page.waitForTimeout(100);
+});

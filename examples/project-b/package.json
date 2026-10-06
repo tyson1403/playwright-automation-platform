@@ -1,0 +1,11 @@
+{
+  "name": "project-b",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@tyson1403/playwright-automation-platform": "github:tyson1403/playwright-automation-platform#v0.1.0"
+  }
+}
