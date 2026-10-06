@@ -4,6 +4,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/); versions follow 
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-06
+### Added
+- `createConfig` defines Chromium, Firefox and WebKit projects. Locally only Chromium runs (fast); CI, or `ALL_BROWSERS=1`, runs all three.
+- CI matrix: each example project runs once per browser.
+
 ## [0.3.0] - 2026-10-06
 ### Changed
 - Playwright is pinned to an exact version (`1.63.0`) instead of `^1.63.0`, so all projects get the same version.

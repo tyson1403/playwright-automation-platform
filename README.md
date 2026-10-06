@@ -40,13 +40,13 @@ The project does **not** depend on `@playwright/test` itself; the platform provi
 ## Install
 
 ```bash
-npm i github:tyson1403/playwright-automation-platform#v0.3.0
+npm i github:tyson1403/playwright-automation-platform#v0.4.0
 npx playwright install
 ```
 
 ## What it provides
 
-- `createConfig(overrides)`: shared defaults (retries on CI, reporters, trace on first retry). Project values win; unspecified defaults are kept (`use` is merged, not replaced).
+- `createConfig(overrides)`: shared defaults (retries on CI, reporters, trace on first retry, browsers: Chromium locally, Chromium + Firefox + WebKit in CI or with `ALL_BROWSERS=1`). Project values win; unspecified defaults are kept (`use` is merged, not replaced).
 - `test` / `expect`: Playwright's, extended with an auto `pageErrors` fixture that fails tests on uncaught page errors. Projects import everything from one place and extend `test` with their own fixtures.
 - `BasePage`: base class for page objects (`path`, `open()`, `title()`).
 - `uniqueId(prefix)`: unique test data.

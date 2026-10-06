@@ -12,7 +12,8 @@ jobs:
       fail-fast: false
       matrix:
         project: [project-a, project-b]
-    name: build-and-test (${{ matrix.project }})
+        browser: [chromium, firefox, webkit]
+    name: ${{ matrix.project }} / ${{ matrix.browser }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,16 +45,16 @@ jobs:
 
       - name: Install Playwright browsers
         working-directory: examples/${{ matrix.project }}
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Run example tests
         working-directory: examples/${{ matrix.project }}
-        run: npx playwright test
+        run: npx playwright test --project=${{ matrix.browser }}
 
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.project }}
+          name: playwright-report-${{ matrix.project }}-${{ matrix.browser }}
           path: examples/${{ matrix.project }}/playwright-report/
           retention-days: 14

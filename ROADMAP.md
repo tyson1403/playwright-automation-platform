@@ -16,7 +16,7 @@ reusable helpers, consumed by many test projects.
 - [x] Second consumer project (`project-b`); CI runs both against the same platform build
 - [x] Exact Playwright pin plus CI version-consistency check; upgrade guide ([docs/UPGRADING.md](docs/UPGRADING.md))
 - [ ] Demonstrate a real Playwright bump reaching both projects when 1.64 is released
-- [ ] Multi-browser CI matrix
+- [x] Multi-browser support: Chromium locally, all three browsers in CI
 - [ ] Automated release notes and upgrade guide
 
 ## Decisions
