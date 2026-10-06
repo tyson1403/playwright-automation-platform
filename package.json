@@ -2,7 +2,10 @@
   "name": "@tyson1403/playwright-automation-platform",
   "version": "0.1.0",
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/tyson1403/playwright-automation-platform.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyson1403/playwright-automation-platform.git"
+  },
   "description": "Shared Playwright platform: versions, config and reusable helpers",
   "type": "module",
   "main": "./dist/index.js",
@@ -18,12 +21,16 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
     "@types/node": "^26.6.3",
     "typescript": "^7.0.2"
   },

@@ -1,0 +1,11 @@
+{
+  "files": {
+    "includes": [
+      "src/**",
+      "examples/*/tests/**",
+      "examples/*/playwright.config.ts"
+    ]
+  },
+  "formatter": { "indentStyle": "space", "indentWidth": 2 },
+  "linter": { "enabled": true, "rules": { "preset": "none" } }
+}

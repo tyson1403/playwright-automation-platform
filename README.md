@@ -48,7 +48,7 @@ npx playwright install
 
 - `createConfig(overrides)`: shared defaults (retries on CI, reporters, trace on first retry). Project values win; unspecified defaults are kept (`use` is merged, not replaced).
 - `test` / `expect`: re-exported so projects import everything from one place.
-- Planned: reusable fixtures and page objects, CI, changelog.
+- CI on every push and pull request (see badge above). Reusable fixtures and page objects are on the [roadmap](ROADMAP.md).
 
 ## Design decisions
 
@@ -56,7 +56,7 @@ npx playwright install
 - **Repo root is the package**: npm cannot install a subfolder from a git URL.
 - **`baseURL` is not a platform default**: each project owns its URL.
 - **Versioning via git tags** (semver); projects pin a tag.
-- Full decision log and roadmap: [PROGRESS.md](PROGRESS.md).
+- Decision log and roadmap: [ROADMAP.md](ROADMAP.md).
 
 ## Repository layout
 
