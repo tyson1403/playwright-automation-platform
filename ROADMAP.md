@@ -14,7 +14,8 @@ reusable helpers, consumed by many test projects.
 - [x] Lint step (Biome) in CI
 - [x] Reusable fixture (`pageErrors`), `BasePage` page-object base, `uniqueId` helper
 - [x] Second consumer project (`project-b`); CI runs both against the same platform build
-- [ ] Show a Playwright version bump reaching both projects (v0.3.0)
+- [x] Exact Playwright pin plus CI version-consistency check; upgrade guide ([docs/UPGRADING.md](docs/UPGRADING.md))
+- [ ] Demonstrate a real Playwright bump reaching both projects when 1.64 is released
 - [ ] Multi-browser CI matrix
 - [ ] Automated release notes and upgrade guide
 

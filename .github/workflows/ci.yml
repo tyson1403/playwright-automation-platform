@@ -34,6 +34,14 @@ jobs:
         working-directory: examples/${{ matrix.project }}
         run: npm install --no-save ../..
 
+      - name: Check the example runs the platform's pinned Playwright
+        working-directory: examples/${{ matrix.project }}
+        run: |
+          expected=$(node -p "require('../../package.json').dependencies['@playwright/test']")
+          actual=$(npx playwright --version | awk '{print $2}')
+          echo "expected=$expected actual=$actual"
+          test "$expected" = "$actual"
+
       - name: Install Playwright browsers
         working-directory: examples/${{ matrix.project }}
         run: npx playwright install --with-deps chromium

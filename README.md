@@ -40,7 +40,7 @@ The project does **not** depend on `@playwright/test` itself; the platform provi
 ## Install
 
 ```bash
-npm i github:tyson1403/playwright-automation-platform#v0.2.0
+npm i github:tyson1403/playwright-automation-platform#v0.3.0
 npx playwright install
 ```
 
@@ -58,7 +58,7 @@ npx playwright install
 - **Repo root is the package**: npm cannot install a subfolder from a git URL.
 - **`baseURL` is not a platform default**: each project owns its URL.
 - **Versioning via git tags** (semver); projects pin a tag.
-- Decision log and roadmap: [ROADMAP.md](ROADMAP.md).
+- Upgrading Playwright: [docs/UPGRADING.md](docs/UPGRADING.md). Decision log and roadmap: [ROADMAP.md](ROADMAP.md).
 
 ## Repository layout
 

@@ -4,6 +4,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/); versions follow 
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-06
+### Changed
+- Playwright is pinned to an exact version (`1.63.0`) instead of `^1.63.0`, so all projects get the same version.
+### Added
+- CI check that each example runs the platform's pinned Playwright version.
+- `docs/UPGRADING.md`: how to bump Playwright once for all projects.
+
 ## [0.2.0] - 2026-10-06
 ### Added
 - `test` now includes an auto `pageErrors` fixture that fails any test with an uncaught page error.
