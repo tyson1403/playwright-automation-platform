@@ -13,7 +13,7 @@ Environment (verified 2026-09-30): Node v24.14.0, npm 11.9.0, git 2.52, Windows 
 - [x] Step 5  - Consumer project A uses the platform (now pinned to tag v0.1.0)
 - [ ] Step 6  - Consumer project B; prove one version bump reaches both
 - [~] Step 7  - Versioning + distribution: v0.1.0 tagged and installable; changelog and release notes still to do
-- [ ] Step 8  - Guardrails: lint, CI, upgrade process, docs
+- [~] Step 8  - Guardrails: CI done (build + example tests on every push/PR); lint, upgrade process, docs still to do
 
 ## Current step
 Step 4 - Reusable fixtures and helpers; then Step 6 (consumer project B).
